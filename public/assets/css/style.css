@@ -1,0 +1,47 @@
+body {
+    background: #f5f5f5;
+}
+
+div.container {
+    background: #fff;
+    height: 100vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.form-group + .form-group {
+    margin-top: 30px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-top: 15px;
+    position: relative;
+}
+
+li div.form-group input {
+    max-width: 90%;
+}
+
+li > a.btn {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+}
+
+div.card {
+    margin: 30px 0;
+}
+
+.list-group-item {
+    border: 0;
+}

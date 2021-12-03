@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>Test Form</h1>
+                {{ form_start(form) }}
+                {{ form_row(form.title) }}
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            {{ form_label(form.tags) }}
+                            <div class="col-sm-10 text-end">
+                                <button type="button"
+                                        class="btn btn-outline-primary add-another-collection-widget"
+                                        data-list-selector="#tag-fields-list">Add Tag</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="tag-fields-list"
+                        class="list-group"
+                        data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}"
+                        data-widget-tags="{{ '<li class="list-group-item"></li>'|e }}"
+                        data-widget-counter="{{ form.tags|length }}">
+                        {% for tag in form.tags %}
+                            <li clasS="list-group-item">
+                                {{ form_errors(tag) }}
+                                {{ form_widget(tag) }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {# for whatever reaseon, the label of tags gots printed twice #}
+                {% do form.tags.setRendered %}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ asset('assets/js/manage-tags.js') }}"></script>
+{% endblock %}
